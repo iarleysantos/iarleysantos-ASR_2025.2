@@ -1,1 +1,44 @@
-
+iarley@DESKTOP-BNNDJ0A:/mnt/c/Users/Iarley$ ssh-keygen -t rsa -C "iarley.santos62@aluno.ifce.edu.br"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/iarley/.ssh/id_rsa):
+Created directory '/home/iarley/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/iarley/.ssh/id_rsa
+Your public key has been saved in /home/iarley/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:yVKMLTbzeNdpzJ2peWwAHsaVQMdnWANBF7nj1EdSgvQ iarley.santos62@aluno.ifce.edu.br
+The key's randomart image is:
++---[RSA 3072]----+
+|         .o=BB*+.|
+|       + . o=o=o.|
+|      * + =  oE= |
+|     . O + * o+oo|
+|      o S o Bo+..|
+|       o . . =.  |
+|            o +  |
+|             o   |
+|                 |
++----[SHA256]-----+
+iarley@DESKTOP-BNNDJ0A:/mnt/c/Users/Iarley$ cd ~/.ssh
+iarley@DESKTOP-BNNDJ0A:~/.ssh$ ls
+ls               lsasrv.mof       lsb_release      lshw             lslogins         lsmod            lsof
+lsasetup.log     lsass.exe        lsblk            lsipc            lsm.dll          lsmproxy.dll     lspgpot
+lsasrv.dll       lsattr           lscpu            lslocks          lsmem            lsns             lstelemetry.dll
+iarley@DESKTOP-BNNDJ0A:~/.ssh$ ls
+id_rsa  id_rsa.pub
+iarley@DESKTOP-BNNDJ0A:~/.ssh$ cat id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDuR/n4oLf9De3P+ad3MYt7P01hzHf2nqOl6UGZE6SPuKPEJt3Jcx9xsbv0j+lWAJ0K+b1UNTTW7FLoUbtyCtDeFVeNwqxZUmBrt4LSKqAoQg8K2DUrMj5npn+DcFfrRVqOwP2aXFck6lVIbzEAGqVi9e/zbPcii4had1s4lAQxInpQSls7LvH+XP5Nyz9vf+i7dwKulXf3hQJJcKFMcmgmrXGo0ZKTOhmccn4/JQ2OVHgmmTGlTHPaUhqKpTTJVnBSTzPV0fIOt8y09weIpmjTwS/xFsjfmku6eBOTt5ozGdtSBMKXABerhO7azqdFpp9CbRMxvjhguvA3Lp2Q/p2GLlkA98HrKovU0+gexHEUbRflciaFi4RZUqETiKAAfW/UeFR4DJjN4i1FPP+Vlb5GgCWoVEpe6yNngwyil9Iyb/49O2USfPybpOU1nAHk6PTLxSd8CmuoEwbcocHOK+C7ymtF7YvvIhEOKtBxxhf0WIVpi4+Za2ooUgEQS6rZ1Es= iarley.santos62@aluno.ifce.edu.br
+iarley@DESKTOP-BNNDJ0A:~/.ssh$ cd /home/iarleys
+bash: cd: /home/iarleys: No such file or directory
+iarley@DESKTOP-BNNDJ0A:~/.ssh$ mkdir iarley
+iarley@DESKTOP-BNNDJ0A:~/.ssh$ cd /home/iarley
+iarley@DESKTOP-BNNDJ0A:~$ git clone https://github.com/hcodebr/youtube-digitalocean-terraform
+Cloning into 'youtube-digitalocean-terraform'...
+remote: Enumerating objects: 11, done.
+remote: Counting objects: 100% (11/11), done.
+remote: Compressing objects: 100% (7/7), done.
+remote: Total 11 (delta 1), reused 11 (delta 1), pack-reused 0 (from 0)
+Receiving objects: 100% (11/11), done.
+Resolving deltas: 100% (1/1), done.
+iarley@DESKTOP-BNNDJ0A:~$
