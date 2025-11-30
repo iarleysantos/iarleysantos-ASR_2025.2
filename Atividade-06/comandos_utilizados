@@ -1,0 +1,42 @@
+Comandos utilizados no samba-server:
+
+Comando e Descrição
+apk update: Atualiza a lista de pacotes.
+apk add samba samba-common: Instala o Samba Server e suas dependências.
+mkdir -p /srv/samba/compartilhado: Cria o diretório a ser compartilhado.
+chmod -R 0777 /srv/samba/compartilhado: Define permissões amplas para testes.
+chown -R nobody:nobody /srv/samba/compartilhado: Define o proprietário do diretório.
+echo "Teste de arquivo no servidor" > /srv/samba/compartilhado/servidor.txt: Cria um arquivo de teste.
+smbpasswd -a root: Adiciona o usuário root ao banco de dados do Samba e pede a senha.
+smbpasswd -e root: Habilita o usuário root no Samba.
+mv /etc/samba/smb.conf /etc/samba/smb.conf.bak: Faz um backup do arquivo original.
+echo "[global]" > /etc/samba/smb.conf: Inicia o arquivo de configuração.
+echo "workgroup = WORKGROUP" >> /etc/samba/smb.conf: Define o grupo de trabalho.
+echo "security = user" >> /etc/samba/smb.conf: Define o modo de segurança (autenticação por usuário).
+cat <<EOT >> /etc/samba/smb.conf: Inicia a inserção da seção de compartilhamento.
+[compartilhado_pwd]: Nome do compartilhamento.
+comment = Compartilhamento PWD: Comentário descritivo.
+path = /srv/samba/compartilhado: Caminho do diretório compartilhado.
+browseable = yes: Permite que o compartilhamento seja listado.
+writable = yes: Permite escrita no compartilhamento.
+valid users = root: Especifica quem pode acessar (apenas root).
+force user = root: Força que todas as ações sejam feitas como root.
+EOT: Finaliza a inserção.
+`ip a	grep inet
+smbd -D -s /etc/samba/smb.conf: Inicia o daemon principal do Samba.
+nmbd -D -s /etc/samba/smb.conf: Inicia o daemon NetBIOS (para descoberta de nomes).
+`ps aux	grep smbd`
+
+
+Comandos utilizados no samba-cliente:
+
+Comando e Descrição
+apk update: Atualiza a lista de pacotes.
+apk add samba-client: Instala o utilitário smbclient.
+smbclient -L //IP_DO_SERVIDOR -U root: TESTE DE CONEXÃO: Lista os compartilhamentos disponíveis no servidor.
+smbclient //IP_DO_SERVIDOR/compartilhado_pwd -U root: CONEXÃO BEM-SUCEDIDA: Acessa o compartilhamento remoto. O prompt muda para smb: \>.
+ls: Lista os arquivos no compartilhamento remoto.
+get servidor.txt: Baixa o arquivo do Servidor para o Cliente.
+exit:Sai do prompt Samba e retorna ao terminal Linux normal.
+ls: (No terminal Linux) Lista os arquivos no diretório atual do Cliente.
+cat servidor.txt: (No terminal Linux) Exibe o conteúdo do arquivo baixado para confirmar a transferência.
